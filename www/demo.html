@@ -1,0 +1,129 @@
+<html>
+    <head>
+        <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Open+Sans:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
+        <meta http-equiv="Cache-control"content="public">
+        <meta http-eqiv="max-age" content="10000000000">
+        <script type="text/javascript">
+            function sleep(ms) {
+                return new Promise(resolve => setTimeout(resolve, ms));
+            }
+            
+            img1 = new Array();
+            
+            function preload(i){
+                img1[i] = new Image();
+                var url = "Cadre/";
+                if(i<=9) url=url +"000"
+                if(i>=10&&i<=99) url=url +"00"
+                if(i>=100&&i<=999) url=url +"0"
+                url = url + i.toString(10);
+                url = url+".webp";
+                img1[i].src = url;
+                console.log(1);
+                sleep(100);
+            }
+            function binary_load(l,r){
+                for(i=1;i<=Math.floor(Math.log2(r))+1;i++){
+                    console.log("i="+i);
+                    for(j=1;j<=Math.pow(2,i);j++){
+                        console.log("j="+j)
+                        preload(Math.floor(r/Math.pow(2,i)*j));
+                        console.log(1)
+                    }
+                }
+            }
+			if (document.images) {
+                preload(1);
+                preload(120);
+                binary_load(1,120);
+			}
+
+		//--><!]]>
+        </script>
+        <style>
+            body{
+                background:#764BFF;
+                margin:0;
+                padding:0;
+                overflow-x: hidden;
+            }
+            img{
+                width: 60vw;
+                display:inline-block;
+                margin-left:18vw;
+                overflow: hidden;
+                vertical-align: middle;
+            }
+            div{
+                width:20vw;
+                display:inline-block;
+                color:white;
+                vertical-align: middle;
+            }
+            h1{
+                font-family:'Merriweather';
+                font-size: 7vh;
+            }
+            li{
+                font-family:'Open Sans';
+            }
+            ul{
+                list-style-type:none;
+            }
+        </style>
+    </head>
+    <body>
+        <div>
+            <h1>It's a cool thing!</h1>
+            <ul>
+                <li>It does this</li>
+                <li>It does this</li>
+                <li>It does this</li>
+                <li>It does this</li>
+                <li>It does this</li>
+            </ul>
+
+        </div>
+        <img id="example1" src="Cadre/0001.webp"/>
+    
+    </body><script>
+    (function() {
+        document.onmousemove = handleMouseMove;
+        function handleMouseMove(event) {
+            var eventDoc, doc, body;
+    
+            event = event || window.event; // IE-ism
+    
+            // If pageX/Y aren't available and clientX/Y are,
+            // calculate pageX/Y - logic taken from jQuery.
+            // (This is to support old IE)
+            if (event.pageX == null && event.clientX != null) {
+                eventDoc = (event.target && event.target.ownerDocument) || document;
+                doc = eventDoc.documentElement;
+                body = eventDoc.body;
+    
+                event.pageX = event.clientX +
+                  (doc && doc.scrollLeft || body && body.scrollLeft || 0) -
+                  (doc && doc.clientLeft || body && body.clientLeft || 0);
+                event.pageY = event.clientY +
+                  (doc && doc.scrollTop  || body && body.scrollTop  || 0) -
+                  (doc && doc.clientTop  || body && body.clientTop  || 0 );
+            }
+            var Xcoord=(Math.floor((event.pageX/window.innerWidth)*120*2)+1)-120
+            console.log(Xcoord+"   "+ event.pageX+"   "+ window.innerWidth)
+            var Sxcoord=Math.floor(120/(1+Math.pow(2.71828,-0.085*(Xcoord-60))))+1
+            if(Xcoord<=1)Xcoord=1;
+            if(Xcoord>=120)Xcoord=120;
+            var url = "Cadre/";
+            if(Xcoord<=9)
+            url=url +"000"
+            if(Xcoord>=10&&Xcoord<=99)
+            url=url +"00"
+            if(Xcoord>=100&&Xcoord<=999)
+            url=url +"0"
+            url = url + Xcoord.toString(10);
+            url = url+".webp";
+            document.getElementById("example1").src = url;
+        }
+    })();</script>
+</html>
