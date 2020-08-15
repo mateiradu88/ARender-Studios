@@ -37,7 +37,7 @@ nav ul li a{
     text-decoration:none;
 }
 a.active{
-    color:#D8183B;
+    color:#0048B4;
 }
 header{
     height:40px;
@@ -64,9 +64,10 @@ header{
 .motto p{
     border-left:12px solid white;
     padding-left:20px;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.0em;
     color:white;
     font-family:'Montserrat', sans-serif;
+    font-weight: 400;
     font-size:36px;
     line-height:44px;
     position: absolute;
@@ -77,6 +78,7 @@ header{
     padding-bottom:10px;
 }
 .highlighted{
-    color:#D8183B;
-    font-family:'Slabo 13px', serif;
+    color:#3a86f8;
+    font-family:'Roboto Slab', serif;
+    font-weight:200;
 }
