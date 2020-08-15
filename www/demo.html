@@ -3,7 +3,7 @@
         <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Open+Sans:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
         <meta http-equiv="Cache-control"content="public">
         <meta http-eqiv="max-age" content="10000000000">
-        <link rel="stylesheet" type="text/css" href="css/home.css"><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400&family=Roboto+Slab:wght@100;200;300&family=Slabo+13px&display=swap" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="css/home.css"><link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600&family=Roboto+Slab:wght@100;200;300&family=Slabo+13px&display=swap" rel="stylesheet">
         <script type="text/javascript">
             function sleep(ms) { return new Promise(resolve => setTimeout(resolve, ms)); }
             img1 = new Array();
@@ -48,17 +48,34 @@
             </ul></nav>
         </header>
         <div class="showcase">
+            <div class="touch-pad" onmousemove="radialPhotoAnimation(event,'example1')"></div>
             <div class="motto">
-                <p onmousemove="radialPhotoAnimation(event,'example1')">
+                <p>
                     <span class="highlighted">Adaptability</span>&nbsp;&nbsp;is&nbsp;&nbsp;our&nbsp;&nbsp;top&nbsp;&nbsp;<span class="highlighted">priority</span>.</br>
                     Because&nbsp;&nbsp;we&nbsp;&nbsp;already&nbsp;&nbsp;know&nbsp;&nbsp;you&nbsp;&nbsp;want&nbsp;&nbsp;<span class="highlighted">revisions</span>.</br>
                     <i>Unlimited&nbsp;&nbsp;</i>revisions.
-
-
                 </p>
             </div>
-            <div class="overlay" onmousemove="radialPhotoAnimation(event,'example1')"></div>
+            <div class="overlay"></div>
             <img id="example1" src="Cadre/0001.webp" />
+        </div>
+        <div class="showcase">
+            <div class="touch-pad" onmousemove="radialPhotoAnimation(event,'')"></div>
+            <div class="motto">
+                <p>
+                    <span class="highlighted">Adaptability</span>&nbsp;&nbsp;is&nbsp;&nbsp;our&nbsp;&nbsp;top&nbsp;&nbsp;<span class="highlighted">priority</span>.</br>
+                    Because&nbsp;&nbsp;we&nbsp;&nbsp;already&nbsp;&nbsp;know&nbsp;&nbsp;you&nbsp;&nbsp;want&nbsp;&nbsp;<span class="highlighted">revisions</span>.</br>
+                    <i>Unlimited&nbsp;&nbsp;</i>revisions.
+                </p>
+            </div>
+            <div class="overlay"></div>
+            <img src="Cadre/0001.webp" />
+        </div>
+        <div class="detail-showcase">
+            <div class="bttn-group">
+                
+            </div>
+
         </div>
     </body>
     <script>
@@ -85,7 +102,7 @@
             /*var Xcoord=(Math.floor((event.pageY/window.innerHeight)*128*2)+1)-128
             console.log(Xcoord+"   "+ event.pageY+"   "+ window.innerHeight+"  "+ event.clientY)
             var Sxcoord=Math.floor(128/(1+Math.pow(2.71828,-0.085*(Xcoord-64))))+1*/
-            Xcoord=Math.floor(mapping(theta,0,Math.PI*0.5,1,128))
+            Xcoord=Math.floor(mapping(theta,Math.PI*.05,Math.PI*0.47,1,128))
             if(Xcoord<=1)Xcoord=1;
             if(Xcoord>=128)Xcoord=128;
             var url = "Cadre/";
