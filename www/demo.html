@@ -3,13 +3,11 @@
         <link href="https://fonts.googleapis.com/css2?family=Merriweather&family=Open+Sans:ital,wght@0,300;1,300&display=swap" rel="stylesheet">
         <meta http-equiv="Cache-control"content="public">
         <meta http-eqiv="max-age" content="10000000000">
+        <link rel="stylesheet" type="text/css" href="css/home.css">
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&family=Slabo+13px&display=swap" rel="stylesheet">
         <script type="text/javascript">
-            function sleep(ms) {
-                return new Promise(resolve => setTimeout(resolve, ms));
-            }
-            
+            function sleep(ms) { return new Promise(resolve => setTimeout(resolve, ms)); }
             img1 = new Array();
-            
             function preload(i){
                 img1[i] = new Image();
                 var url = "Cadre/";
@@ -34,45 +32,22 @@
             }
 			if (document.images) {
                 preload(1);
-                preload(120);
-                binary_load(1,120);
+                preload(128);
+                binary_load(1,128);
 			}
-
-		//--><!]]>
         </script>
-        <style>
-            body{
-                background:#764BFF;
-                margin:0;
-                padding:0;
-                overflow-x: hidden;
-            }
-            img{
-                width: 60vw;
-                display:inline-block;
-                margin-left:18vw;
-                overflow: hidden;
-                vertical-align: middle;
-            }
-            div{
-                width:20vw;
-                display:inline-block;
-                color:white;
-                vertical-align: middle;
-            }
-            h1{
-                font-family:'Merriweather';
-                font-size: 7vh;
-            }
-            li{
-                font-family:'Open Sans';
-            }
-            ul{
-                list-style-type:none;
-            }
-        </style>
     </head>
     <body>
+        <header>
+            <div id="logo"><img src="Logo1.svg"/></div>
+            <nav><ul>
+                <li><a class="active" href="">Home</a></li>
+                <li><a href="">Services</a></li>
+                <li><a href="">Portfolio</a></li>
+                <li><a href="">Reviews</a></li>
+                <li><a href="">Contact</a></li>
+            </ul></nav>
+        </header>
         <div>
             <h1>It's a cool thing!</h1>
             <ul>
@@ -84,20 +59,16 @@
             </ul>
 
         </div>
-        <img id="example1" src="Cadre/0001.webp" onmousemove="handleMouseMove()"/>
+        <img id="example1" src="Cadre/0001.webp" onmousemove="radialPhotoAnimation(event,'example1')"/>
     
-    </body><script>
+    </body>
+    <script>
         function mapping(x,x1,y1,x2,y2){
             return ((x-x1)*(y2-x2)/(y1-x1))+x2;
         }
-        function handleMouseMove(event) {
+        function radialPhotoAnimation(event, id) {
             var eventDoc, doc, body;
-            
-            event = event || window.event; // IE-ism
-            //event = document.onmousemove
-            // If pageX/Y aren't available and clientX/Y are,
-            // calculate pageX/Y - logic taken from jQuery.
-            // (This is to support old IE)
+            event = event || window.event;
             if (event.pageX == null && event.clientX != null) {
                 eventDoc = (event.target && event.target.ownerDocument) || document;
                 doc = eventDoc.documentElement;
@@ -115,7 +86,7 @@
             /*var Xcoord=(Math.floor((event.pageY/window.innerHeight)*128*2)+1)-128
             console.log(Xcoord+"   "+ event.pageY+"   "+ window.innerHeight+"  "+ event.clientY)
             var Sxcoord=Math.floor(128/(1+Math.pow(2.71828,-0.085*(Xcoord-64))))+1*/
-            Xcoord=Math.floor(mapping(theta,0,Math.PI/2,1,128))
+            Xcoord=Math.floor(mapping(theta,0,Math.PI*0.5,1,128))
             if(Xcoord<=1)Xcoord=1;
             if(Xcoord>=128)Xcoord=128;
             var url = "Cadre/";
@@ -127,10 +98,7 @@
             url=url +"0"
             url = url + Xcoord.toString(10);
             url = url+".webp";
-            document.getElementById("example1").src = url;
-            gpageX=event.pageX;
-            gpageY=event.pageY;
-            lscrollX=doc && doc.scrollLeft || body && body.scrollLeft || 0;
-            lscrollY=doc && doc.scrollTop  || body && body.scrollTop  || 0;
-        }</script>
+            document.getElementById(id).src = url;
+        }
+    </script>
 </html>
