@@ -72,24 +72,42 @@
             <img src="Cadre/0001.webp" />
         </div> -->
         <div class="detail-showcase">
-            <div class="bttn-group">
-                <button style="border-radius:50px 0px 0px 50px;" onclick="changeImageForId('ds-image','basic.jpg')" >Basic</button>
-                <button onclick="changeImageForId('ds-image','furnished.jpg')">Furnished</button>
-                <button onclick="changeImageForId('ds-image','detail.jpg')">Detailed</button>
-                <button style="border-radius:0px 50px 50px 0px;" onclick="changeImageForId('ds-image','ultra.jpg')">Ultra</button>
-            </div>
             <img id="ds-image" src="basic.jpg">
             <div class="motto">
                 <p>
-                    <span class="highlighted">Adaptability</span>&nbsp;&nbsp;is&nbsp;&nbsp;our&nbsp;&nbsp;top&nbsp;&nbsp;<span class="highlighted">priority</span>.</br>
-                    Because&nbsp;&nbsp;we&nbsp;&nbsp;already&nbsp;&nbsp;know&nbsp;&nbsp;you&nbsp;&nbsp;want&nbsp;&nbsp;<span class="highlighted">revisions</span>.</br>
-                    <i>Unlimited&nbsp;&nbsp;</i>revisions.
+                    Because we know <span class="highlighted">detail</span> is important for any project.</br>
+                    Whether you need something <span class="highlighted">simple</span>, <span class="highlighted">complex</span>, or <span class="highlighted">truly alive</span>, we've got your back.
                 </p>
+            </div>
+            <div class="bttn-group" id="test">
+                <button style="border-radius:50px 0px 0px 50px;" onclick="changeImageForId('ds-image','basic.jpg'); highlightBttn('test',0);" >Basic</button>
+                <button onclick="changeImageForId('ds-image','furnished.jpg'); highlightBttn('test',1);">Furnished</button>
+                <button onclick="changeImageForId('ds-image','detail.jpg'); highlightBttn('test',2);">Detailed</button>
+                <button style="border-radius:0px 50px 50px 0px;" onclick="changeImageForId('ds-image','ultra.jpg'); highlightBttn('test',3);">Atmospheric</button>
             </div>
         </div>
         <script>
             function changeImageForId(id, path){
                 document.getElementById(id).src = path;
+            }
+            function highlightBttn(id,nr){
+                let count=0
+                while(count<4){
+                    if(count==nr)
+                        document.getElementById(id).children[count].className="active";
+                    else
+                        document.getElementById(id).children[count].className="";
+                    count++;
+                }
+                // for(button in document.getElementById(id).children){
+                //     if(count==nr){
+                //         button.class="active"
+                //         //document.getElementById(id).style="background-color: red"
+                //         console.log(document.getElementById(id).children)}
+                //     else
+                //         button.class="";
+                //     count++;
+                // }
             }
         </script>
     </body>
