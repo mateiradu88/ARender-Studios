@@ -1,6 +1,6 @@
 body{
     /* background: #111111; */
-    background:#eeeeee;
+    background:#ffffff;
     margin:0;
     padding:0;
 }
@@ -159,5 +159,31 @@ header{
     padding-left:0px;
     border-left:0;
     text-align: right;
+    color:#222222;
+}
+
+.product-showcase{
+    margin-top:2%;
+    margin-right:5%;
+    margin-bottom:5%;
+}
+.product-showcase img{
+    width:50%;
+    height:auto;
+    margin-left:50%;
+}
+.product-showcase .motto{
+    margin-top:-23vw;
+    margin-right:50%;
+    position:relative;
+    width:40%;
+}
+.product-showcase .motto p{
+    margin-left:20%;
+    border-left:12px solid #222222;
+    padding-left:20px;
+    padding-right:0px;
+    border-right:0;
+    text-align: left;
     color:#222222;
 }
